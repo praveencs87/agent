@@ -174,6 +174,25 @@ The runtime consists of several modular components:
 
 ---
 
+
+## 📚 Learning Series
+
+Want to understand how this agent works under the hood? Check out our 5-part architecture series:
+
+1.  [**Vision & Architecture**](docs/articles/01-vision-architecture.md) - The high-level design.
+2.  [**The Brain (Planner)**](docs/articles/02-goal-decomposition.md) - How goal decomposition works.
+3.  [**The Body (Executor)**](docs/articles/03-skill-execution.md) - Secure skill execution.
+4.  [**Memory & Context**](docs/articles/04-memory-persistence.md) - SQLite & Vector storage.
+5.  [**Self-Improvement**](docs/articles/05-self-improvement.md) - Metrics & The Auto-Fixer.
+
+## 🔮 What's Next?
+
+We are just getting started. The future includes **Multi-Agent Swarms**, **Sandboxed Execution**, and **Voice Interfaces**.
+Check out our detailed [**ROADMAP.md**](ROADMAP.md) to see where we are heading and how you can help build the future of autonomous software development.
+
+### Comparisons
+- [**vs OpenClaw**](docs/comparisons/openclaw.md) - How we differ from other AI OS projects.
+
 ## 🤝 Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to set up your development environment.

@@ -1,0 +1,89 @@
+# Building Self-Improvement: The Auto-Fixer (Part 5/5)
+
+In **Part 1-4**, we built an agent that can plan, execute, and remember. But like any junior developer, it will make mistakes.
+
+What if the `npm-install` skill breaks because of a new error message format?
+
+Normally, you'd fix the code. But an **Autonomous Agent** should fix *itself*.
+
+## ❤️ The Metrics
+
+First, we need to know something is broken. We track **Skill Metrics** (`src/memory/store.ts`):
+
+```sql
+CREATE TABLE skill_metrics (
+    skill TEXT PRIMARY KEY,
+    calls INTEGER DEFAULT 0,
+    successes INTEGER DEFAULT 0,
+    failures INTEGER DEFAULT 0,
+    total_duration_ms INTEGER DEFAULT 0
+);
+```
+
+Whenever a skill runs, we record the outcome:
+- **Success Rate**: `successes / calls`
+- **Avg Duration**: `total_duration_ms / calls`
+
+If `git-commit` fails 5 times in a row, its success rate drops below 20%. This triggers an alert.
+
+## 🩺 The Doctor
+
+We built `src/skills/doctor.ts`. Its job is to diagnose failing skills.
+
+1.  **Check Metrics**: Find skills with >5 failures or <50% success rate.
+2.  **Analyze Logs**: Retrieve specific error messages (e.g., "fatal: not a git repository").
+3.  **Generate Report**: "Skill `git-commit` is failing because it's running outside a repo."
+
+## 🔧 The Auto-Fixer
+
+The magic happens in `doctor.fix(skillName)`. It uses the LLM to patch the code.
+
+### 1. Construct Prompt
+```typescript
+const prompt = `You act as an AI Tool Developer.
+The skill "${skillName}" is failing repeatedly.
+
+Current Source (prompt.md):
+${currentCode}
+
+Recent Errors:
+- ${error1}
+- ${error2}
+
+Rewrite the prompt to handle these errors.`;
+```
+
+### 2. Generate Patch
+The LLM reads the errors ("not a git repository") and decides to add a check:
+```markdown
+# Git Commit Skill
+## Updated Instructions
+1. Run `git status` first to verify repo.
+2. If distinct, add changes.
+3. Commit.
+```
+
+### 3. Apply & Reload
+The agent overwrites `prompt.md` with the new version and reloads the skill instantly. The next execution uses the fixed logic.
+
+## 🚀 Conclusion
+
+We have built a system that:
+1.  **Decomposes** vague goals into tasks.
+2.  **Executes** tasks using defined skills.
+3.  **Remembers** context and learnings.
+4.  **Monitors** itself and **Fixes** its own tools.
+
+This loop—Plan, Do, Check, Act—is the foundation of autonomy.
+
+### 📚 Series Recap
+
+- **Part 1**: Architecture & Vision
+- **Part 2**: The Brain (Goal Decomposition)
+- **Part 3**: The Body (Skill Execution)
+- **Part 4**: The Memory (Persistence)
+- **Part 5**: Self-Improvement (Auto-Fixer)
+
+You can explore the full source code and contribute at [GitHub](https://github.com/praveencs87/agent).
+
+Happy Hacking!
