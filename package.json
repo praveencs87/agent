@@ -1,0 +1,64 @@
+{
+    "name": "@praveencs/agent",
+    "version": "0.1.0",
+    "files": ["dist", "bin", "README.md", "src/index.d.ts"],
+    "description": "CLI agent runtime with Skill Hub, Plan Files, and permissioned tools",
+    "type": "module",
+    "bin": {
+        "agent": "./dist/bin/agent.js"
+    },
+    "main": "./dist/src/index.js",
+    "types": "./dist/src/index.d.ts",
+    "scripts": {
+        "build": "tsc -p tsconfig.build.json",
+        "dev": "tsx watch bin/agent.ts",
+        "start": "node dist/bin/agent.js",
+        "lint": "eslint src/ bin/ --ext .ts",
+        "format": "prettier --write 'src/**/*.ts' 'bin/**/*.ts'",
+        "test": "jest --config jest.config.ts",
+        "test:integration": "jest --config jest.config.ts --testPathPattern=integration",
+        "prepublishOnly": "npm run build"
+    },
+    "keywords": [
+        "agent",
+        "cli",
+        "automation",
+        "skills",
+        "mcp",
+        "llm"
+    ],
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "@anthropic-ai/sdk": "^0.39.0",
+        "@modelcontextprotocol/sdk": "^1.5.0",
+        "chalk": "^5.4.1",
+        "chokidar": "^4.0.3",
+        "commander": "^13.1.0",
+        "croner": "^9.0.0",
+        "diff": "^7.0.0",
+        "glob": "^11.0.1",
+        "hnswsqlite": "^0.2.0",
+        "inquirer": "^12.4.0",
+        "keytar": "^7.9.0",
+        "openai": "^4.82.0",
+        "ora": "^8.2.0",
+        "pino": "^9.6.0",
+        "pino-pretty": "^13.0.0",
+        "yaml": "^2.7.0",
+        "zod": "^3.24.2"
+    },
+    "devDependencies": {
+        "@types/diff": "^7.0.0",
+        "@types/inquirer": "^9.0.7",
+        "@types/node": "^22.13.0",
+        "eslint": "^9.19.0",
+        "jest": "^29.7.0",
+        "prettier": "^3.4.2",
+        "ts-jest": "^29.2.5",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.3"
+    }
+}

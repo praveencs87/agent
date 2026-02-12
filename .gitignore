@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+.pnpm-store
+
+# Local Development
+dist/
+.env
+.env.*
+.agent/
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+/test
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db
