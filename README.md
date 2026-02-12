@@ -4,6 +4,12 @@
     A CLI agent runtime that executes goals safely with <b>Skills</b>, <b>Plan Files</b>, and <b>permissioned tools</b>.<br/>
     Multi-LLM • Policy-gated • Audit-logged • MCP-compatible
   </p>
+  <p align="center">
+    <a href="https://www.npmjs.com/package/@praveencs/agent"><img src="https://img.shields.io/npm/v/@praveencs/agent.svg" alt="npm version"></a>
+    <a href="https://github.com/praveencs87/agent"><img src="https://img.shields.io/github/stars/praveencs87/agent.svg?style=social" alt="GitHub stars"></a>
+    <a href="https://github.com/praveencs87/agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+    <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg" alt="Node.js"></a>
+  </p>
 </p>
 
 ---
@@ -66,13 +72,19 @@
 
 - **Node.js** ≥ 18.0.0
 - **npm** or **yarn**
-- An LLM API key (OpenAI, Anthropic) or a running Ollama instance
+- An LLM API key (Azure OpenAI, OpenAI, Anthropic) or a running Ollama instance
+
+### Install from npm
+
+```bash
+npm install -g @praveencs/agent
+```
 
 ### Install from source
 
 ```bash
-git clone <repository-url> agent-runtime
-cd agent-runtime
+git clone https://github.com/praveencs87/agent.git
+cd agent
 npm install
 npm run build
 
@@ -80,7 +92,7 @@ npm run build
 npm link
 ```
 
-After linking, the `agent` command is available system-wide.
+After installation, the `agent` command is available system-wide.
 
 ### Verify installation
 

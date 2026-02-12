@@ -1,7 +1,12 @@
 {
     "name": "@praveencs/agent",
     "version": "0.1.0",
-    "files": ["dist", "bin", "README.md", "src/index.d.ts"],
+    "files": [
+        "dist",
+        "bin",
+        "README.md",
+        "src/index.d.ts"
+    ],
     "description": "CLI agent runtime with Skill Hub, Plan Files, and permissioned tools",
     "type": "module",
     "bin": {
@@ -28,6 +33,14 @@
         "llm"
     ],
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/praveencs87/agent.git"
+    },
+    "homepage": "https://github.com/praveencs87/agent#readme",
+    "bugs": {
+        "url": "https://github.com/praveencs87/agent/issues"
+    },
     "engines": {
         "node": ">=18.0.0"
     },
