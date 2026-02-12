@@ -50,7 +50,7 @@ const ToolConfigSchema = z.object({
 // ─── Skill Config ───
 const SkillConfigSchema = z.object({
     installPaths: z.array(z.string()).default(['.agent/skills']),
-    registryUrl: z.string().default('https://registry.agent-runtime.dev'),
+    registryUrl: z.string().default('https://raw.githubusercontent.com/praveencs87/agent-skills/main'),
 });
 
 // ─── Daemon Config ───
